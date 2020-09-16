@@ -1,4 +1,4 @@
-![Image of Wut](https://github.com/psytron/gameobject/aux/gobg.png)
+![GOBG](http://github.com/psytron/gameobject/blob/master/aux/gobg.png)
 ## GameObject 
 
 Standard event bubbling, containment detection and special injection which eliminates need for any templating libraries. 
