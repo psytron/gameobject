@@ -1,0 +1,15 @@
+{
+  "name": "gameobject",
+  "version": "0.0.1",
+  "description": "Simple, stackable, event bubbling, app building system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/psytron/gameobject"
+  },
+  "author": "PSYTRON",
+  "license": "ISC"
+}
