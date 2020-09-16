@@ -31,3 +31,19 @@ var obj1 = GameObject( { ui:'/http/path.html' , gluemap:app_map1  } ) //  Map , 
 ```shell
 npm install gameobject 
 ```
+
+
+
+
+
+
+### UI Chunks
+UI Chunks are just plain webpages. Regular HTML which can load directly into any browser. If you sprinkle some attributes into the HTML it can pull in data chunks. 
+```html
+<body>
+    <div id="theComponent">
+        <div>
+        </div>
+    </div>
+</body>
+```
