@@ -1,6 +1,6 @@
 {
   "name": "gameobject",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Simple, stackable, event bubbling, app building system",
   "main": "index.js",
   "scripts": {
