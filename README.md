@@ -47,5 +47,6 @@ Easy Gluemap heuristics based data injection. Selective, inferred or brute. Many
 
 
 
-Some icons future space in here
+
 ![GOBG](https://github.com/psytron/gameobject/blob/master/aux/gobg.png)
+Some icons future space in here
