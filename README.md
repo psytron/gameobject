@@ -1,12 +1,24 @@
 ## GameObject 
 
-Simplify UI development using standard event bubbling, containment detection and special injection which eliminates need for any templating libraries. 
+Standard event bubbling, containment detection and special injection which eliminates need for any templating libraries. 
+
+- Pure JS
+- Standard event bubbling
+- No templating dependancy
+- Standard HTML UI Chunks work in any browser 
+
 
 
 
 ```javascript
 
+
+
 // GameObject by extending
+class App extends GameObject {}  // extent GameObject 
+var app = new App() // extends GameObject 
+
+// Pretend to be React 
 class App extends GameObject {}  // extent GameObject 
 var app = new App() // extends GameObject 
 
