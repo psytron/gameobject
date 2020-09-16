@@ -49,6 +49,7 @@ GameObject uses Range objects ( standard Document.createRange() ) to enable elem
 Easy Gluemap heuristics based data injection. Selective, inferred or brute. Many injection results may not be perfect but something will happen. 
 
 ![GOBG](https://github.com/psytron/gameobject/raw/master/aux/gobg.png)
+![GOBG](https://github.com/psytron/gameobject/raw/master/aux/gameobject_stripe.png)
 Some icons future space in here
 
 #more templates
