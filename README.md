@@ -1,19 +1,19 @@
 ## GameObject 
-
 Standard event bubbling, containment detection and special injection which eliminates need for any templating libraries. 
-
 - Pure JS
 - Standard event bubbling
 - No templating dependancy
 - Standard HTML UI Chunks work in any browser 
+### Install
+```shell
+npm install gameobject 
+```
 
 
 
 
+### Usage
 ```javascript
-
-
-
 // GameObject by extending
 class App extends GameObject {}  // extent GameObject 
 var app = new App() // extends GameObject 
@@ -27,10 +27,6 @@ var obj1 = GameObject( { ui:'/http/path.html'} )  // Use directly to wrap workin
 var obj1 = GameObject( { ui:'/http/path.html' , gluemap:app_map1  } ) //  Map , Make big projects fun. 
 ```
 
-### Install
-```shell
-npm install gameobject 
-```
 
 
 
