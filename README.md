@@ -14,17 +14,15 @@ npm install gameobject
 
 ### Usage
 ```javascript
-// GameObject by extending
-class App extends GameObject {}  // extent GameObject 
-var app = new App() // extends GameObject 
-
-// Pretend to be React 
-class App extends GameObject {}  // extent GameObject 
-var app = new App() // extends GameObject 
 
 // GameObject by wrapping 
-var obj1 = GameObject( { ui:'/http/path.html'} )  // Use directly to wrap working chunks of HTML UI. So fun. 
-var obj1 = GameObject( { ui:'/http/path.html' , gluemap:app_map1  } ) //  Map , Make big projects fun. 
+var obj1 = GameObject( { ui:'/examples/bubble.html'} )  // Use directly to wrap working chunks of HTML UI. So fun. 
+var obj2 = GameObject( { ui:'/examples/button.html'} ) //  Map , Make big projects fun. 
+
+// GameObject by extending
+class FunApp extends GameObject {}  // extent GameObject 
+var app = new FunApp() // extends GameObject 
+
 ```
 
 
