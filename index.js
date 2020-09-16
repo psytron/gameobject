@@ -1,13 +1,5 @@
 
-//import { renderNodeSync } from '/x_modules/flatfactory.js'
-//
-// class App extends GameObject {
-// }
 
-// var obj0 = FunApp( ) // extends GameObject 
-// var obj1 = GameObject( { ui:'/http/path.html'} )  // Use directly to wrap working chunks of HTML UI. So fun. 
-// var obj1 = GameObject( { ui:'/http/path.html' , gluemap:app_map1  } ) //   GlueMap , Make big projects fun. 
-// npm install gameobject 
 
 class GameObject {
     
