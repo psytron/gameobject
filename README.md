@@ -1,6 +1,6 @@
 ## GameObject 
 
-Hello. This lib is a small container for simplifying ui composition without using templating libraries.
+Simplify UI development using standard event bubbling, containment detection and special injection which eliminates need for any templating libraries. 
 
 
 

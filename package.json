@@ -11,5 +11,8 @@
     "url": "github.com/psytron/gameobject"
   },
   "author": "PSYTRON",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "np": "^6.5.0"
+  }
 }
