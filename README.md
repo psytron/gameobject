@@ -1,11 +1,7 @@
-![GOBG](https://github.com/psytron/gameobject/blob/master/aux/gobg.png)
-## GameObject 
 
-Standard event bubbling, containment detection and special injection which eliminates need for any templating libraries. 
-- Pure JS
-- Standard event bubbling
-- No templating dependancy
-- Standard HTML UI Chunks work in any browser 
+## GameObject 
+Simple UI lib for app building. Features easy event bubbling, container detection, and special injection. Eliminates the need for templating libs or mixed delimiters. Standard event bubbling and no depenancies. Standard HTML UI Chunks work in any browser. 
+
 ### Install
 ```shell
 npm install gameobject 
@@ -43,3 +39,11 @@ UI Chunks are just plain webpages. Regular HTML which can load directly into any
     </div>
 </body>
 ```
+
+
+
+
+
+
+Some icons future space in here
+![GOBG](https://github.com/psytron/gameobject/blob/master/aux/gobg.png)
