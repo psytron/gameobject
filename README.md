@@ -41,11 +41,22 @@ UI Chunks are plain webpages. Regular HTML can load directly into any browser. S
 </body>
 ```
 
+### Techicals
+GameObject uses Range objects ( standard Document.createRange() ) to enable element node selection and mutation, while event bubbling is handled via standard javascript addEventListener calls with CustomEvent. 
+
 
 ### Gluemap
 Easy Gluemap heuristics based data injection. Selective, inferred or brute. Many injection results may not be perfect but something will happen. 
 
 
 
+<<<<<<< HEAD
 ![GOBG](https://github.com/psytron/gameobject/raw/master/aux/gobg.png)
+=======
+
+![GOBG](https://github.com/psytron/gameobject/blob/master/aux/gobg.png)
+
+>>>>>>> 34ac32831a708165abaf8bb1542ff0328e4d80a3
 Some icons future space in here
+
+#more templates
