@@ -30,18 +30,20 @@ var app = new FunApp() // extends GameObject
 
 
 ### UI Chunks &copy;&trade;
-UI Chunks are just plain webpages. Regular HTML which can load directly into any browser. If you sprinkle some attributes into the HTML it can pull in data chunks. 
+UI Chunks are plain webpages. Regular HTML can load directly into any browser. Sprinkle attributes as hints about event triggers. 
 ```html
 <body>
     <div id="theComponent">
         <div>
+            <span id='somefunk_x'></span>
         </div>
     </div>
 </body>
 ```
 
 
-
+### Gluemap
+Easy Gluemap heuristics based data injection. Selective, inferred or brute. Many injection results may not be perfect but something will happen. 
 
 
 
