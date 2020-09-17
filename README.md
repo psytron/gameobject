@@ -1,6 +1,6 @@
 
 ## GameObject 
-Simple UI lib for app building. Features easy event bubbling, container detection, and special injection. Eliminates the need for templating libs or mixed delimiters. Standard event bubbling and no depenancies. Standard HTML UI Chunks work in any browser. 
+App and game building container system for JavaScript. Easy standard event bubbling, parent detection, and special gluemap injection. Gluemap eliminates templating libs or syntax that mixes template delimiters into your assets. No depenancies. Your UI assets are just standard HTML UI Chunks that work in any browser with zero dependencies and zero bundling/compiling. 
 
 ### Install
 ```shell
@@ -50,6 +50,9 @@ Easy Gluemap heuristics based data injection. Selective, inferred or brute. Many
 
 ### Techicals
 GameObject uses Range objects ( standard Document.createRange() ) to enable element node selection and mutation, while event bubbling is handled via standard javascript addEventListener calls with CustomEvent. 
+
+### Speed
+May be slower than other frameworks that use virtual doms, compilers and template syntax because Gluemap + Factory + Library combo are geard towards intuitive nesting of interactive objects without using anything except standard HTML. This means it all happens at run-time, so if you need to render 10,000 nodes you may be better off with the more popular frameworks like react.
 
 
 ![GOBG](https://github.com/psytron/gameobject/raw/master/aux/gobg.png)
