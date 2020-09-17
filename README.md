@@ -1,13 +1,12 @@
 
 ## GameObject 
-App and game building container system for JavaScript. Easy standard event bubbling, parent detection, and special gluemap injection. Gluemap eliminates templating libs or syntax that mixes template delimiters into your assets. No depenancies. Your UI assets are just standard HTML UI Chunks that work in any browser with zero dependencies and zero bundling/compiling. 
+App and game building container system for JavaScript. Standard event bubbling, parent detection, and gluemap injection. Gluemap eliminates syntax that mixes template delimiters into your assets which make them unrenderable without bundeleres and compilers. Your UI assets are just standard HTML UI Chunks that work in any browser with zero dependencies and zero bundling/compiling. No depenancies. 
+
 
 ### Install
 ```shell
 npm install gameobject 
 ```
-
-
 
 
 ### Usage
@@ -22,9 +21,6 @@ class FunApp extends GameObject {}  // extent GameObject
 var app = new FunApp() // extends GameObject 
 
 ```
-
-
-
 
 
 
