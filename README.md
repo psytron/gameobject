@@ -12,13 +12,27 @@ npm install gameobject
 ### Usage
 ```javascript
 
-// GameObject by wrapping 
+// WRAP GameObject
 var obj1 = GameObject( { ui:'/examples/bubble.html'} )  // Use directly to wrap working chunks of HTML UI. So fun. 
 var obj2 = GameObject( { ui:'/examples/button.html'} ) //  Map , Make big projects fun. 
 
-// GameObject by extending
-class FunApp extends GameObject {}  // extent GameObject 
+// or
+
+// EXTEND GameObject
+class FunApp extends GameObject {
+    constructor( initObj ){
+    
+        this.loadUi('menubar.html')
+        
+        library.renderSync( 'menubar' , { 'title':'wut'} )
+    }
+}  // extent GameObject 
+
+
 var app = new FunApp() // extends GameObject 
+
+
+
 
 ```
 
