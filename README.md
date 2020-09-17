@@ -26,7 +26,7 @@ var app = new FunApp() // extends GameObject
 
 
 ### UI Chunks &copy;&trade;
-UI Chunks are plain webpages. Regular HTML can load directly into any browser. Sprinkle attributes as hints about event triggers. 
+UI Chunks are plain regular HTML that can load directly into any browser. Sprinkle attributes as hints about event triggers and interactivity.
 ```html
 <body>
     <div id="theComponent">
