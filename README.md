@@ -1,6 +1,6 @@
 
 ## GameObject 
-App and game building container system for JavaScript. Standard event bubbling, parent detection, and gluemap injection. Gluemap eliminates syntax that mixes template delimiters into your assets which make them unrenderable without bundeleres and compilers. Your UI assets are just standard HTML UI Chunks that work in any browser with zero dependencies and zero bundling/compiling. No depenancies. 
+App and game building container system for JavaScript. Standard event bubbling, parent detection, and gluemap injection. Gluemap eliminates syntax that mixes template delimiters into your assets. This makes them renderable without bundeleres and compilers. Your UI assets are just standard HTML UI Chunks that work in any browser with zero dependencies and zero bundling or compiling.
 
 
 ### Install
