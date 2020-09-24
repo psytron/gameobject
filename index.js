@@ -1,47 +1,56 @@
-
+import { factory2d } from '/x_modules/factory/factory2d.js'
+//import { library2d } from '/x_modules/factory/library2d.js'
 
 
 class GameObject {
     
     constructor( initObj ) {    
+
+        this.factory = factory2d;
+        
+
+        /// PARAMETERS ///
+        if( ! initObj ){ initObj = {} }; 
         this.target = initObj.target ? initObj.target : document.body; // DEFAULTS TO BODY 
         this.data = initObj.data ? initObj.data : {};                  // DATA IS AVAILABLE TO SUBCLASS
-        if( initObj.url ){                                             // NEW RENDERED FRAGMENT WITH UI CHUNK ( returns attached element )
-            this.container = factory2d.renderNodeSync( initObj.url , this.data )
-            this.ui = this.container; // standardized ui 
-            this.target.appendChild( this.container ) 
-                                                                       // Should Fix ID return like Below?
-        }else{                                                         // NEW EMPTY CONTAINER  ( returns attached element )
-            var future_id = this.constructor.name+'_'+Math.round( Math.random() * 9999 );
+        var ui_url =('ui' in initObj) ? initObj['ui'] : ( 'url' in initObj ) ? initObj['url'] : false;
+        var future_id = this.constructor.name+'_'+Math.round( Math.random() * 9999 );
+        
+
+        /// ATTACH UI OR EMPTY CONTAINER // 
+        if( ui_url ){ // NEW FRAGMENT WITH UI CHUNK
+            this.container = factory2d.renderNodeSync( ui_url , this.data )
+            this.container.setAttribute("id", future_id );
+            this.ui = this.container; // standardized ui                                                                        // Should Fix ID return like Below?
+        }else{  // NEW EMPTY CONTAINER
             this.container = document.createRange().createContextualFragment( '<div id="'+future_id+'"></div>' );
-            this.target.appendChild( this.container ) 
-            this.container = this.target.querySelector( '#'+future_id )
         }
-        var l = 3;
+        this.target.appendChild( this.container ) 
+        this.container = this.target.querySelector( '#'+future_id )
+
+
+        /// INJECT DATA if PRESENT:
+        if( 'data' in initObj ){
+            this.inject( this.container , this.data )
+        }
+
     }
     
 
-    
-    // PROXY EVENT HOOKS
-    dispatchEvent( event_in ){
-        this.container.dispatchEvent( event_in )
+    renderNode( view_in , data_in ){
+        var future_id = this.constructor.name+'_'+Math.round( Math.random() * 9999 );
+        // this.container = factory2d.renderNodeSync( ui_url , this.data )
+        // this.ui = this.container; // standardized ui 
+        // this.target.appendChild( this.container ) 
+        //var vnode = factory2d.renderNodeSync( view_in , data_in )         
+
+        var vnode = new GameObject( { target:this.container , ui:view_in , data:data_in } )
+               
+        //var anode = this.container.appendChild( vnode ) // append vnode after all mutations         
+        return vnode.container;
     }
-    addEventListener( event_identifier , init_object ){
-        this.container.addEventListener( event_identifier , init_object )
-    }
-    removeEventListener( event_identifier , init_object ){
-        this.container.removeEventListener( event_identifier , init_object )
-    }    
-    
 
 
-
-    // DISCOVER / CONNECT
-    discoverEventDispatchers( broadcaster_in ){
-        var subjects = broadcaster_in.subjects()
-        this.matchMerge( subjects , this.interests() )
-
-    }
     discoverParent( ){
         if( this.container.parentElement ){
             console.log(' auto parent: ', this.container.parentElement)
@@ -54,14 +63,26 @@ class GameObject {
     inject( target , obj ){
         for( var p in obj){
             console.log( p , obj[p] )   
+            
             try{
-                
-                //this.elem_funcs[ p ]( obj[p] )
                 var el = target.querySelector( '#'+p+'')
-                console.log( el.type )
-                if( el.type=='text'){
-                    el.value = obj[p]
+                
+                switch( el.tagName ){
+                    case 'IMG':
+                        el.setAttribute('src' , obj[p] )
+                        break;
+                    case 'DIV':    
+                        el.innerHTML = obj[p]
+                        break;
+                    case 'SPAN':    
+                        el.innerHTML = obj[p]
+                        break;
+
+                    default:
+                        console.log(' wow')
                 }
+
+
 
             }catch(e){
                 console.log(' Injection Error: ', e)
@@ -69,10 +90,13 @@ class GameObject {
         }
     }
 
-    spanUi( ui_url ){
+
+
+    spawnUi( ui_url ){
         console.log(' this should enable spawning internal UI ')
         //this.ui = renderNodeSync( ui_url )
     }
+
 
 
     // SPAWN HOOKS 
@@ -108,24 +132,15 @@ class GameObject {
         if( typeof( pin)=='string' ){
             console.log( 'STRING YAY' )
         }
-        
-        // finds class cache and creates  new Class() 
-        // class Finds own UI and
-        // Class(  this.container )    is automatically passed its own container 
-        // so in instantiated reference its naturally nested.    
-        // this.container.appendAdjactendHTML( <el-x id='xixi'></el-x> )
-        // var elx_element = this.container.findElement('#xixi')
-        // return  ['a1.b1.c6']
-        /*
-        <obj-x id='a1'>
-            <obj-x id='b1'></obj-x>
-            <obj-x id='b2'></obj-x>
-            <obj-x id='b3'>
-                <obj-x id='c6'></obj-x>
-                <obj-x id='c5'></obj-x>
-                <obj-x id='c4'></obj-x>
-            </obj-x>
-        </obj-x> */
+
+    }
+
+
+    // DISCOVER / CONNECT
+    discoverEventDispatchers( broadcaster_in ){
+        var subjects = broadcaster_in.subjects()
+        this.matchMerge( subjects , this.interests() )
+
     }
 
     newClass( container_in , xclass_in , dat , id_in ){
@@ -155,6 +170,39 @@ class GameObject {
     }
           
 
+    // EVENT STUFF: 
+    // PROXY EVENT HOOKS
+    dispatchEvent( event_in ){
+        this.container.dispatchEvent( event_in )
+    }
+    addEventListener( event_identifier , init_object ){
+        this.container.addEventListener( event_identifier , init_object )
+    }
+    removeEventListener( event_identifier , init_object ){
+        this.container.removeEventListener( event_identifier , init_object )
+    }    
+    
+
+
+
+
+}
+//customElements.define('game-component', GameComponent );
+export { GameObject }
+
+
+
+        // default to blank for sloppy constructor
+        //this.parent = arguments.callee.caller;
+        //var stackTrace = (new Error()).stack; 
+        //var stackTrace = (new Error()).stack; // Only tested in latest FF and Chrome
+        //var callerName = stackTrace.replace(/^Error\s+/, ''); // Sanitize Chrome
+        //callerName = callerName.split("\n")[1]; // 1st item is this, 2nd item is caller
+        //callerName = callerName.replace(/^\s+at Object./, ''); // Sanitize Chrome
+        //callerName = callerName.replace(/ \(.+\)$/, ''); // Sanitize Chrome
+        //callerName = callerName.replace(/\@.+/, ''); // Sanitize Firefox
+        //console.log(callerName)
+        
     // Can this attach its own children using innerHTML='<yo id="xix"><yo>'
     // this.yo = this.queryElement('#xix')
     // but in children do: 
@@ -166,6 +214,21 @@ class GameObject {
     // addEventListener('customEvent' , function(){} )
     // addEventListener('customEvent' , function(){}  , capture:true )
 
-}
-//customElements.define('game-component', GameComponent );
-export { GameObject }
+        
+        // finds class cache and creates  new Class() 
+        // class Finds own UI and
+        // Class(  this.container )    is automatically passed its own container 
+        // so in instantiated reference its naturally nested.    
+        // this.container.appendAdjactendHTML( <el-x id='xixi'></el-x> )
+        // var elx_element = this.container.findElement('#xixi')
+        // return  ['a1.b1.c6']
+        /*
+        <obj-x id='a1'>
+            <obj-x id='b1'></obj-x>
+            <obj-x id='b2'></obj-x>
+            <obj-x id='b3'>
+                <obj-x id='c6'></obj-x>
+                <obj-x id='c5'></obj-x>
+                <obj-x id='c4'></obj-x>
+            </obj-x>
+        </obj-x> */    
