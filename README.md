@@ -33,6 +33,9 @@ var app = new FunApp() // extends GameObject
 
 
 
+var eventVacuum = new EventVacuum( { } );
+
+eventVacuum.findSubjects( app ) ; // iterate interests
 
 ```
 
